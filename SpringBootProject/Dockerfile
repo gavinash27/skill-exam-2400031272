@@ -10,10 +10,11 @@ COPY pom.xml .
 
 # Copy source code
 COPY src ./src
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
 # Give permission to Maven wrapper
 RUN chmod +x mvnw
-murin:21-jre
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
